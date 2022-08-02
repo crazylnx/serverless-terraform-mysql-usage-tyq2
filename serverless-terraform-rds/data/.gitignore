@@ -1,0 +1,4 @@
+!rds
+!.gitignore
+!data.tf
+.terraform

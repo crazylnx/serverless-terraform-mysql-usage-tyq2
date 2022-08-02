@@ -1,0 +1,33 @@
+{
+  "name": "start-component",
+  "version": "0.0.1",
+  "description": "This is a component demo for Serverless Devs Tool ",
+  "autoInstall": false,
+  "homepage": "https://www.serverless-devs.com",
+  "author": "Serverless-Devs",
+  "contributors": [],
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "Serverless",
+    "Framework",
+    "Serverless-Devs",
+    "Serverless-Tool",
+    "Function Compute"
+  ],
+  "scripts": {
+    "prebuild": "rm -rf node_modules && rm -rf package-lock.json && npm i && rimraf dist",
+    "build": "npm run lint && npm run fix && npm run esbuild",
+    "lint": "f2elint scan",
+    "fix": "f2elint fix",
+    "esbuild": "esbuild src/index.js --bundle --log-level=error --minify --platform=node --format=cjs --target=node10.4 --external:@serverless-devs/core --outfile=dist/index.js"
+  },
+  "dependencies": {
+    "@alicloud/fc-open20210406": "^1.1.8",
+    "@serverless-devs/core": "^0.1.32",
+    "esbuild": "^0.14.51"
+  }
+}
